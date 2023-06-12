@@ -123,7 +123,7 @@ export const LineLeft = styled.div`
 `;
 
 export const LineRight = styled.div`
-  width: 18%;
+  width: 17%;
   height: 0px;
   border: 1px solid;
 
