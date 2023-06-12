@@ -10,3 +10,6 @@ There is a game called "Millionaire" with 12 questions, each correct answer give
 
 !To check linter `npm lint`.
 !To run linter and fix `npm lint:fix`.
+
+### To visit site:
+[click this url](https://anuta21.github.io/millionaire-game/)
