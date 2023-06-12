@@ -1,6 +1,7 @@
 {
   "name": "game",
   "version": "0.1.0",
+  "homepage": "https://anuta21.github.io/millionaire-game/",
   "private": true,
   "dependencies": {
     "@emotion/styled": "^11.11.0",
@@ -21,8 +22,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "build": "react-scripts build",
     "lint": "npx eslint .",
-    "lint:fix": "npx eslint --fix ."
+    "lint:fix": "npx eslint --fix .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +47,19 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "gh-pages": "^5.0.0",
     "prettier": "^2.8.8"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

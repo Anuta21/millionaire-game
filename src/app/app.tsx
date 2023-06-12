@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import { GameStartPage, GameOverPage, QuestionsPage } from './pages';
 
 export const App: React.FC = () => (
