@@ -1,1 +1,2 @@
-export * from "./icons/thumb-up-with-stars/images";
+export * from './progress-step';
+export * from './buttons';

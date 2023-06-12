@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Colors, DesktopQuestion } from "../../common";
-import { IShowSidebar } from "./models";
+import styled from 'styled-components';
+import { Colors, QuestionFontText } from '../../common';
+import { IShowSidebar } from './models';
 
 export const Wrapper = styled.div<IShowSidebar>`
   position: relative;
@@ -23,16 +23,14 @@ export const Wrapper = styled.div<IShowSidebar>`
   }
 
   @media (max-width: 640px) {
-    grid-template-columns: ${(props) =>
-      props.showSidebar
-        ? "[start] 0% [middle] 100% [end]"
-        : "[start] 100% [middle] 0% [end]"};
+    grid-template-columns: ${(props) => (props.showSidebar ? '[start] 0% [middle] 100% [end]' : '[start] 100% [middle] 0% [end]')};
   }
 `;
 
+// Question part
+
 export const BurgerMenuIcon = styled.div`
   display: flex;
-  //align-items: center;
   flex-direction: row;
   justify-content: flex-end;
   position: relative;
@@ -47,19 +45,17 @@ export const BurgerMenuIcon = styled.div`
 `;
 
 export const CurrentQuestionContainer = styled.div<IShowSidebar>`
-  //position: relative;
   grid-column-start: start;
   grid-column-end: middle;
   max-height: 100vh;
 
   @media (max-width: 640px) {
-    display: ${(props) => (props.showSidebar ? "none" : "default")};
+    display: ${(props) => (props.showSidebar ? 'none' : 'default')};
   }
 `;
 
 export const CurrentQuestionContentContainer = styled.div`
   display: flex;
-  //align-items: center;
   flex-direction: column;
   justify-content: space-between;
 
@@ -87,19 +83,21 @@ export const CurrentQuestionContentContainer = styled.div`
   }
 `;
 
-export const QuestionText = styled(DesktopQuestion)``;
+export const QuestionText = styled(QuestionFontText)`
+  @media (max-width: 640px) {
+    text-align: center;
+  }
+`;
 
 export const Options = styled.div`
   display: flex;
-  //align-items: center;
   align-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  //position: relative;
+
   bottom: 0;
   left: 0;
-  //gap: 32px;
   width: 100%;
   height: 176px;
 
@@ -109,6 +107,51 @@ export const Options = styled.div`
 
   @media (max-width: 640px) {
     height: 248px;
+  }
+
+  @media (min-height: 1200px) {
+    height: 480px;
+  }
+
+  @media (min-height: 1500px) {
+    height: 750px;
+  }
+
+  @media (min-height: 1700px) {
+    height: 900px;
+  }
+`;
+
+export const OptionButtonContainer = styled.div`
+  width: 50%;
+  height: 72px;
+
+  @media (max-width: 1064px) {
+    height: 56px;
+    width: 100%;
+  }
+
+  @media (min-height: 1200px) {
+    height: 100px;
+    width: 100%;
+  }
+
+  @media (min-height: 1500px) {
+    height: 150px;
+  }
+`;
+
+// Progress sidebar
+
+export const ProgressContainer = styled.div<IShowSidebar>`
+  grid-column-start: middle;
+  grid-column-end: end;
+  max-height: 100vh;
+
+  background: ${Colors.White100};
+  @media (max-width: 640px) {
+    background: ${Colors.Black5};
+    display: ${(props) => (props.showSidebar ? 'default' : 'none')};
   }
 `;
 
@@ -123,42 +166,6 @@ export const CrossIcon = styled.img`
   }
 `;
 
-export const ProgressContainer = styled.div<IShowSidebar>`
-  grid-column-start: middle;
-  grid-column-end: end;
-  max-height: 100vh;
-
-  background: ${Colors.White100};
-  @media (max-width: 640px) {
-    background: ${Colors.Black5};
-    display: ${(props) => (props.showSidebar ? "default" : "none")};
-  }
-`;
-
-export const OptionsInlineContainer = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-
-  width: 59%;
-  height: 72px;
-`;
-
-export const OptionButtonContainer = styled.div`
-  width: 50%;
-  height: 72px;
-
-  @media (max-width: 1064px) {
-    width: 100%;
-  }
-
-  @media (max-width: 1064px) {
-    height: 56px;
-  }
-`;
-
 export const StepsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -169,6 +176,11 @@ export const StepsContainer = styled.div`
   height: 63%;
   width: 100%;
   gap: 8px;
+
+  @media (max-width: 640px) {
+    top: 8%;
+    height: 83%;
+  }
 `;
 
 export const StepContainer = styled.div`

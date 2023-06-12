@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { Colors, DesktopButton, DesktopOption } from "../../../common";
-import { IButtonStyleProps } from "./models";
-import { OptionButtonStates } from "./constants";
+import styled, { css } from 'styled-components';
+import { Colors, ButtonFontText, OptionFontText } from '../../../common';
+import { IButtonStyleProps } from './models';
+import { OptionButtonStates } from './constants';
 
 const correctStyles = css<IButtonStyleProps>`
   color: ${Colors.Green100};
@@ -52,7 +52,6 @@ export const Button = styled.button<IButtonStyleProps>`
   background: transparent;
 
   text-align: center;
-  font-size: 15px;
   text-decoration: none;
   margin: 0 auto 0 auto;
   border: 0;
@@ -60,72 +59,110 @@ export const Button = styled.button<IButtonStyleProps>`
 
   :before,
   :after {
-    width: 100%;
+    width: 98%;
     left: 0px;
     height: 43%;
     border: 3px solid;
+
+    @media (min-height: 1200px) {
+      width: 100%;
+      border: 4px solid;
+    }
+
+    @media (min-height: 1700px) {
+      border: 5px solid;
+    }
+
+    @media (min-height: 2000px) {
+      border: 7px solid;
+    }
   }
 
   :before {
     position: absolute;
-    bottom: 51%;
-    content: "";
+    bottom: 50%;
+    content: '';
     border-bottom: none;
 
     -webkit-transform: perspective(15px) rotateX(5deg);
     -moz-transform: perspective(15px) rotateX(5deg);
     transform: perspective(15px) rotateX(5deg);
     border-radius: 5px 5px 0 0;
+
+    @media (min-height: 1200px) {
+      bottom: 48%;
+
+      -webkit-transform: perspective(55px) rotateX(3deg);
+      -moz-transform: perspective(55px) rotateX(3deg);
+      transform: perspective(55px) rotateX(3deg);
+
+      border-radius: 8px 8px 0 0;
+    }
   }
 
   :after {
     position: absolute;
     top: 52%;
-    content: "";
+    content: '';
     border-top: none;
 
     -webkit-transform: perspective(15px) rotateX(-5deg);
     -moz-transform: perspective(15px) rotateX(-5deg);
     transform: perspective(15px) rotateX(-5deg);
     border-radius: 0 0 5px 5px;
+
+    @media (min-height: 1200px) {
+      top: 51%;
+
+      -webkit-transform: perspective(55px) rotateX(-3deg);
+      -moz-transform: perspective(55px) rotateX(-3deg);
+      transform: perspective(55px) rotateX(-3deg);
+
+      border-radius: 0 0 8px 8px;
+    }
   }
 
-  ${(props) =>
-    props.state === OptionButtonStates.Correct
-      ? correctStyles
-      : props.state === OptionButtonStates.Wrong
-      ? wrongStyles
-      : defaultStyles}
-`;
-
-export const ButtonContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-
-  display: flex;
-  align-items: center;
-  flex-direction: row;
+  ${(props) => (props.state === OptionButtonStates.Correct ? correctStyles : props.state === OptionButtonStates.Wrong ? wrongStyles : defaultStyles)}
 `;
 
 export const LineLeft = styled.div`
   position: absolute;
-  width: 5%;
+  width: 8%;
   height: 0;
   top: 50%;
   left: -11%;
 
   border: 1px solid;
+
+  @media (min-height: 1200px) {
+    width: 10%;
+    left: -11%;
+    border: 2px solid;
+  }
+
+  @media (min-height: 1700px) {
+    border: 3px solid;
+  }
 `;
 
 export const LineRight = styled.div`
   position: absolute;
-  width: 5%;
+  width: 8%;
   height: 0px;
   right: -11%;
   top: 50%;
 
   border: 1px solid;
+
+  @media (min-height: 1200px) {
+    width: 10%;
+    right: -11%;
+    border: 2px solid;
+  }
+
+  @media (min-height: 1700px) {
+    border: 3px solid;
+  }
 `;
 
 export const ContentContainer = styled.div`
@@ -137,12 +174,17 @@ export const ContentContainer = styled.div`
 
   gap: 8px;
   z-index: 1;
+
+  @media (min-height: 1100px) {
+    margin-left: 56px;
+    gap: 38px;
+  }
 `;
 
-export const OptionLetter = styled(DesktopButton)`
+export const OptionLetter = styled(ButtonFontText)`
   color: ${Colors.Orange100};
 `;
 
-export const TextAnswer = styled(DesktopOption)`
+export const TextAnswer = styled(OptionFontText)`
   color: ${Colors.Black100};
 `;

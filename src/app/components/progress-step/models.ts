@@ -1,7 +1,5 @@
 export interface IProgressStepProps {
   state?: string;
-  width: string;
-  height: string;
   sum: string;
 }
 

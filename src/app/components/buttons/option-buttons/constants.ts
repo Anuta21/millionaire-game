@@ -1,5 +1,5 @@
 export enum OptionButtonStates {
-  Default = "default",
-  Correct = "correct",
-  Wrong = "wrong",
+  Default = 'default',
+  Correct = 'correct',
+  Wrong = 'wrong'
 }

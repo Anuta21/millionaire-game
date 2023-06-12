@@ -1,29 +1,29 @@
-import { useLocation } from "react-router-dom";
-import { DesktopHeadline } from "../../common";
-import { LocalImages } from "../../components";
-import { PlainButton } from "../../components/buttons";
-import {
-  Wrapper,
-  ContentContainer,
-  FlexBoxContainer,
-  HandContainer,
-  TotalScore,
-} from "./styles";
-import { IGameOverPageLocationState } from "./models";
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Images, HeadlineFontText } from '../../common';
+import { Wrapper, ContentContainer, FlexBoxContainer, HandContainer, TotalScore, ButtonContainer, TextContainer } from './styles';
+import { IGameOverPageLocationState } from './models';
+import { PlainButton } from '../../components';
 
 export const GameOverPage: React.FC = () => {
   const locationState = useLocation().state as IGameOverPageLocationState;
+  const navigate = useNavigate();
+
+  const onTryAgainButtonClick = () => {
+    navigate('/questions');
+  };
 
   return (
     <Wrapper>
       <FlexBoxContainer>
-        <HandContainer src={LocalImages.hand} />
+        <HandContainer src={Images.hand} />
         <ContentContainer>
-          <div>
+          <TextContainer>
             <TotalScore>Total score:</TotalScore>
-            <DesktopHeadline>${locationState.prize} earned</DesktopHeadline>
-          </div>
-          <PlainButton text="Try again"></PlainButton>
+            <HeadlineFontText>${locationState?.prize || 0} earned</HeadlineFontText>
+          </TextContainer>
+          <ButtonContainer>
+            <PlainButton text='Try again' onClickFunc={onTryAgainButtonClick} width='100%' height='100%' />
+          </ButtonContainer>
         </ContentContainer>
       </FlexBoxContainer>
     </Wrapper>

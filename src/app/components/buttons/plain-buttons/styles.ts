@@ -1,9 +1,10 @@
-import styled from "styled-components";
-import { Colors } from "../../../common";
+import styled from 'styled-components';
+import { Colors } from '../../../common';
+import { IButtonStyles } from './models';
 
-export const Button = styled.button`
-  height: 64px;
-  width: 296px;
+export const Button = styled.button<IButtonStyles>`
+  height: ${(props) => props.height};
+  width: ${(props) => props.width};
 
   background: ${Colors.Orange100};
   border-radius: 12px;

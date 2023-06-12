@@ -1,0 +1,74 @@
+{
+  "env": {
+    "es2021": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": { 
+      "jsx": true 
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["simple-import-sort", "react", "@typescript-eslint"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "no-multi-spaces": "error",
+        "react/prop-types": "off",
+        "semi": "error",
+        "quotes": [
+          "error",
+          "single",
+          {
+            "avoidEscape": true
+          }
+        ],
+        "jsx-quotes": ["error", "prefer-single"],
+        "quote-props": [
+          1,
+          "as-needed",
+          {
+            "numbers": true
+          }
+        ],
+        "one-var": ["error", "never"],
+        "padding-line-between-statements": [
+          "error",
+          {
+            "blankLine": "always",
+            "prev": "import",
+            "next": ["export"]
+          }
+        ],
+        "no-duplicate-imports": "error",
+        "no-console": "warn",
+        "react/jsx-uses-vars": "error",
+        "react/function-component-definition": [
+          "error",
+          {
+            "namedComponents": "arrow-function",
+            "unnamedComponents": ["arrow-function", "function-expression"]
+          }
+        ],
+        "@typescript-eslint/no-explicit-any": "error",
+        "prefer-template": "error",
+        "react-hooks/exhaustive-deps": "off",
+        "@typescript-eslint/no-unused-vars": "warn",
+        "eqeqeq": "error"
+      }
+    }
+  ]
+}

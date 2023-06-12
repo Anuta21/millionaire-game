@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { Colors, DesktopButton, DesktopOption } from "../../common";
-import { IButtonStyleProps } from "./models";
-import { ProgressStepStates } from "./constants";
+import styled, { css } from 'styled-components';
+import { Colors, OptionFontText } from '../../common';
+import { IButtonStyleProps } from './models';
+import { ProgressStepStates } from './constants';
 
 const currentStyles = css`
   color: ${Colors.Orange100};
@@ -32,11 +32,9 @@ export const Step = styled.button<IButtonStyleProps>`
   background: transparent;
 
   text-align: center;
-  font-size: 15px;
   text-decoration: none;
   margin: 0 auto 0 auto;
   border: 0;
-  cursor: pointer;
 
   :before,
   :after {
@@ -45,34 +43,57 @@ export const Step = styled.button<IButtonStyleProps>`
     height: 43%;
     border: 3px solid;
     background-color: ${Colors.White100};
+
+    @media (min-height: 1200px) {
+      border: 4px solid;
+    }
+
+    @media (min-height: 1700px) {
+      border: 5px solid;
+    }
+
+    @media (min-height: 2000px) {
+      border: 7px solid;
+    }
   }
 
   :before {
     position: absolute;
-    bottom: 50%;
-    content: "";
+    bottom: 49%;
+    content: '';
     border-bottom: none;
 
     -webkit-transform: perspective(15px) rotateX(5deg);
     -moz-transform: perspective(15px) rotateX(5deg);
     transform: perspective(15px) rotateX(5deg);
     border-radius: 5px 5px 0 0;
+
+    @media (min-height: 1100px) {
+      -webkit-transform: perspective(15px) rotateX(3deg);
+      -moz-transform: perspective(15px) rotateX(3deg);
+      transform: perspective(15px) rotateX(3deg);
+    }
   }
 
   :after {
     position: absolute;
-    top: 51%;
-    content: "";
+    top: 50%;
+    content: '';
     border-top: none;
 
     -webkit-transform: perspective(15px) rotateX(-5deg);
     -moz-transform: perspective(15px) rotateX(-5deg);
     transform: perspective(15px) rotateX(-5deg);
     border-radius: 0 0 5px 5px;
+
+    @media (min-height: 1100px) {
+      -webkit-transform: perspective(15px) rotateX(-3deg);
+      -moz-transform: perspective(15px) rotateX(-3deg);
+      transform: perspective(15px) rotateX(-3deg);
+    }
   }
 
-  ${(props) =>
-    props.state === ProgressStepStates.Current ? currentStyles : defaultStyles}
+  ${(props) => (props.state === ProgressStepStates.Current ? currentStyles : defaultStyles)}
 `;
 
 export const ButtonContainer = styled.div`
@@ -84,21 +105,35 @@ export const ButtonContainer = styled.div`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  left: -33%;
-  //gap: 50%;
-  z-index: 1;
+  left: -33.5%;
 `;
 
 export const LineLeft = styled.div`
-  width: 18%;
+  width: 19%;
   height: 0;
   border: 1px solid;
+
+  @media (min-height: 1200px) {
+    border: 2px solid;
+  }
+
+  @media (min-height: 1700px) {
+    border: 3px solid;
+  }
 `;
 
 export const LineRight = styled.div`
-  width: 17%;
+  width: 18%;
   height: 0px;
   border: 1px solid;
+
+  @media (min-height: 1200px) {
+    border: 2px solid;
+  }
+
+  @media (min-height: 1700px) {
+    border: 3px solid;
+  }
 `;
 
 export const ContentContainer = styled.div`
@@ -112,11 +147,7 @@ export const ContentContainer = styled.div`
   z-index: 1;
 `;
 
-export const TextAnswer = styled(DesktopOption)<IButtonStyleProps>`
-  color: ${(props) =>
-    props.state === ProgressStepStates.Current
-      ? Colors.Orange100
-      : props.state === ProgressStepStates.Passed
-      ? Colors.Black40
-      : Colors.Black100};
+export const TextAnswer = styled(OptionFontText)<IButtonStyleProps>`
+  z-index: 1;
+  color: ${(props) => (props.state === ProgressStepStates.Current ? Colors.Orange100 : props.state === ProgressStepStates.Passed ? Colors.Black40 : Colors.Black100)};
 `;
